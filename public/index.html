@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skill Development Portal</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div><strong>🚀 Skill Development Portal</strong><small> BTech • Learn. Practice. Improve.</small></div>
+  <div id="userBox"></div>
+</header>
+
+<main class="container">
+  <section id="authView" class="auth-grid">
+    <div class="hero card">
+      <span class="badge">1st Year Skill Development</span>
+      <h1>Build skills from Day 1.</h1>
+      <p>Private task submissions, practical challenges, feedback, progress tracking and senior guidance — all in one place.</p>
+      <ul>
+        <li>💻 Coding</li><li>🎤 Communication</li><li>🎨 Presentation</li><li>🧠 Problem Solving</li><li>🏆 Projects & Competitions</li>
+      </ul>
+    </div>
+    <div class="card auth-card">
+      <div class="tabs"><button class="tab active" onclick="showLogin()">Login</button><button class="tab" onclick="showRegister()">Register</button></div>
+      <form id="loginForm" onsubmit="login(event)">
+        <input id="loginEmail" type="email" placeholder="Email" required>
+        <input id="loginPassword" type="password" placeholder="Password" required>
+        <button class="primary">Login</button>
+      </form>
+      <form id="registerForm" class="hidden" onsubmit="register(event)">
+        <input id="regName" placeholder="Full name" required>
+        <input id="regEmail" type="email" placeholder="Email" required>
+        <input id="regPassword" type="password" placeholder="Password (6+ chars)" required>
+        <input id="regBranch" placeholder="Branch e.g. CSE">
+        <select id="regSem"><option>1</option><option>2</option></select>
+        <button class="primary">Create Student Account</button>
+      </form>
+      <p id="authMsg" class="msg"></p>
+    </div>
+  </section>
+
+  <section id="appView" class="hidden">
+    <nav class="nav">
+      <button onclick="openPage('dashboard')">Dashboard</button>
+      <button onclick="openPage('challenges')">Challenges</button>
+      <button onclick="openPage('submissions')">My Submissions</button>
+      <button onclick="openPage('resources')">Resources</button>
+      <button id="adminNav" class="hidden" onclick="openPage('admin')">Admin</button>
+      <button class="danger" onclick="logout()">Logout</button>
+    </nav>
+    <div id="page"></div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
