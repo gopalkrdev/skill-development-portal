@@ -175,7 +175,6 @@ async function viewMyFile(id,name){
 }
 
 function downloadFile(id){
-  // Authenticated downloads need a fetch so the JWT is included.
   fetch("/api/admin/download/"+id,{headers:{Authorization:"Bearer "+token}}).then(async r=>{
     if(!r.ok) throw new Error("Download failed");
     const blob=await r.blob();const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="submission";a.click();URL.revokeObjectURL(a.href);
